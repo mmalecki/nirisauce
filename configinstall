@@ -1,0 +1,7 @@
+#!/bin/bash
+pluginpath="$(dirname "$(readlink -f $0)")"
+mkdir -pv "$HOME/.config"
+rm -rvf "$HOME/.config/niri"
+ln -svf $pluginpath "$HOME/.config/niri"
+
+sudo apt-get install -y swayidle swaylock xdg-desktop-portal-wlr swaybg
