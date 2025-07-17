@@ -1,7 +1,13 @@
 #!/bin/bash
 pluginpath="$(dirname "$(readlink -f $0)")"
-mkdir -pv "$HOME/.config"
-rm -rvf "$HOME/.config/niri"
-ln -svf $pluginpath "$HOME/.config/niri"
 
-sudo apt-get install -y swayidle swaylock xdg-desktop-portal-wlr swaybg
+rm -rvf "$HOME/.config/niri"
+rm -rvf "$HOME/.config/waybar"
+
+mkdir -pv "$HOME/.config/waybar"
+mkdir -pv "$HOME/.config/niri"
+
+ln -svf "$pluginpath/config.kdl" "$HOME/.config/niri/config.kdl"
+ln -svf "$pluginpath/waybar.jsonc" "$HOME/.config/waybar/config.jsonc"
+
+sudo apt-get install -y swayidle swaylock xdg-desktop-portal-wlr swaybg waybar
